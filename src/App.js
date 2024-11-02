@@ -19,22 +19,22 @@ function App() {
   };
 
   const startGame = async () => {
-    if (!user1Grid.flat().every(num => num) || !user2Grid.flat().every(num => num)) {
-      alert("Please fill in all cells before starting the game.");
-      return;
-    }
-    if (hasDuplicateNumbers(user1Grid) && hasDuplicateNumbers(user2Grid)) {
-      alert("Both grids have duplicate numbers.");
-      return;
-    }
-    if (hasDuplicateNumbers(user1Grid)) {
-      alert('User 1 grid has duplicate numbers. Please ensure all numbers are unique.');
-      return;
-    }
-    if (hasDuplicateNumbers(user2Grid)) {
-      alert('User 2 grid has duplicate numbers. Please ensure all numbers are unique.');
-      return;
-    }
+    // if (!user1Grid.flat().every(num => num) || !user2Grid.flat().every(num => num)) {
+    //   alert("Please fill in all cells before starting the game.");
+    //   return;
+    // }
+    // if (hasDuplicateNumbers(user1Grid) && hasDuplicateNumbers(user2Grid)) {
+    //   alert("Both grids have duplicate numbers.");
+    //   return;
+    // }
+    // if (hasDuplicateNumbers(user1Grid)) {
+    //   alert('User 1 grid has duplicate numbers. Please ensure all numbers are unique.');
+    //   return;
+    // }
+    // if (hasDuplicateNumbers(user2Grid)) {
+    //   alert('User 2 grid has duplicate numbers. Please ensure all numbers are unique.');
+    //   return;
+    // }
     try {
       await axios.post('https://el-lotteria-game.onrender.com/api/start-game', { user1Grid, user2Grid });
       alert('Game Started');
