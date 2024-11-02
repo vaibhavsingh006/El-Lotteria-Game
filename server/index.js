@@ -12,6 +12,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors({
+  origin: '*', // This allows all origins
+}));
 
 // Serve static files from the React app's build directory
 app.use(express.static(path.join(__dirname, 'build')));
@@ -21,18 +24,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/build/index.html'));
 });
 
-const allowedOrigins = [
-    'https://el-lotteria-game-nsub.onrender.com/', // Add your frontend URL here
-];
-
-const corsOptions = {
-    origin: allowedOrigins,
-     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true, // Allow credentials if needed
-    optionsSuccessStatus: 200 // For legacy browser support
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/lotteryGame')
