@@ -19,7 +19,7 @@ const allowedOrigins = [
 
 const corsOptions = {
     origin: allowedOrigins,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true, // Allow credentials if needed
     optionsSuccessStatus: 200 // For legacy browser support
 };
