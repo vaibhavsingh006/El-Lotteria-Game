@@ -36,7 +36,7 @@ function App() {
       return;
     }
     try {
-      await axios.post('http://localhost:5000/api/start-game', { user1Grid, user2Grid });
+      await axios.post('https://el-lotteria-game.onrender.com/api/start-game', { user1Grid, user2Grid });
       alert('Game Started');
       setWinner(null);
       setGeneratedNumber(null);
@@ -66,7 +66,7 @@ function App() {
   const generateNumber = async () => {
     const interval = setInterval(async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/generate-number');
+        const response = await axios.get('https://el-lotteria-game.onrender.com/api/generate-number');
         const newNumber = response.data.number;
         setGeneratedNumber(newNumber);
 
