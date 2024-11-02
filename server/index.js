@@ -5,7 +5,7 @@ const app = express();
 const gameRoutes = require('./routes/gameRoutes')
 
 const allowedOrigins = [
-    'https://el-lotteria-game-2pwu.onrender.com', // Add your frontend URL here
+    'https://el-lotteria-game-nsub.onrender.com/', // Add your frontend URL here
 ];
 
 const corsOptions = {
