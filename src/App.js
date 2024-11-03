@@ -19,24 +19,24 @@ function App() {
   };
 
   const startGame = async () => {
-    // if (!user1Grid.flat().every(num => num) || !user2Grid.flat().every(num => num)) {
-    //   alert("Please fill in all cells before starting the game.");
-    //   return;
-    // }
-    // if (hasDuplicateNumbers(user1Grid) && hasDuplicateNumbers(user2Grid)) {
-    //   alert("Both grids have duplicate numbers.");
-    //   return;
-    // }
-    // if (hasDuplicateNumbers(user1Grid)) {
-    //   alert('User 1 grid has duplicate numbers. Please ensure all numbers are unique.');
-    //   return;
-    // }
-    // if (hasDuplicateNumbers(user2Grid)) {
-    //   alert('User 2 grid has duplicate numbers. Please ensure all numbers are unique.');
-    //   return;
-    // }
+    if (!user1Grid.flat().every(num => num) || !user2Grid.flat().every(num => num)) {
+      alert("Please fill in all cells before starting the game.");
+      return;
+    }
+    if (hasDuplicateNumbers(user1Grid) && hasDuplicateNumbers(user2Grid)) {
+      alert("Both grids have duplicate numbers.");
+      return;
+    }
+    if (hasDuplicateNumbers(user1Grid)) {
+      alert('User 1 grid has duplicate numbers. Please ensure all numbers are unique.');
+      return;
+    }
+    if (hasDuplicateNumbers(user2Grid)) {
+      alert('User 2 grid has duplicate numbers. Please ensure all numbers are unique.');
+      return;
+    }
     try {
-      await axios.post('https://el-lotteria-game.onrender.com/api/start-game', { user1Grid, user2Grid });
+      await axios.post('http://localhost:5000/api/start-game', { user1Grid, user2Grid });
       alert('Game Started');
       setWinner(null);
       setGeneratedNumber(null);
@@ -66,7 +66,7 @@ function App() {
   const generateNumber = async () => {
     const interval = setInterval(async () => {
       try {
-        const response = await axios.get('https://el-lotteria-game.onrender.com/api/generate-number');
+        const response = await axios.get('http://localhost:5000/api/generate-number');
         const newNumber = response.data.number;
         setGeneratedNumber(newNumber);
 
